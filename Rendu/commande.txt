@@ -1,0 +1,48 @@
+docker version:
+Donne les information concernant les version du client (le CLI) et du server (l'engine sur lequel on execute les commande) voir capture 1
+
+docker info:
+Donne les info technique de docker ainsi que le nombre de containers sur le service
+
+docker container run --publish 80:80 --detach --name test nginx :
+Permet de lancer l'image nginx sur le port 80:80 de notre serveur.
+L'image est dabord cherché en local sur le poste, s'il elle n'est pas présente, docker la télécahrge automatique sur dockerhub
+le paramètre --detach ou -d permet de lancer le contenaire en tache de fond
+le paramètre --name permet de specifié un nom au contenaire, dans le cas contraire il prendre un nom aléatoire.
+Capture3 et Capture4
+
+Si je refais la commande:
+Impossible de créer le container car le nom existe deja, les nom sont donc bien unique (capture 6)
+Si le nom n'est pas le meme, mais que le port est identique a un contenaire actif, alors le contenaire sera créer mais non actif.(capture7)
+
+
+
+
+docker ps -a ou docker container ls -a:
+les 2 commandes donne le même resultat.
+Elles permetent d'afficher tout les contaire present sur le seveur avec plusieur de leurs informations:
+son ID: unique pour chaque container
+IMAGE: qu'est ce qui tourne sur ce container (un ubuntu, un nginx,un mysql etc)
+created: quand le container a été créé
+STATUS: le status du container
+PORT: le port sur lequel l'image est ouverte
+NAMES: le nom, unique a chaque container
+ l'option -a permet d'afficher tout les contenaire, sans le -a la commande affiche juste les contenaire en running
+Capture8
+
+docker start ID ou nom:
+Permet de démarrer un contenaire via un ID (pas besoin de mettre l'ID en entier, il seffut que les premier caractère soit unique des autres) ou son nom
+Capture9
+
+docker stop ID:
+Permet de démarrer un contenaire via un ID ou son nom
+Capture9
+
+docker container rm ID:
+Permet de supprimer un container via l'ID ou une parti de l'ID
+
+docker pull:
+Permet de télécharger une image en local sur le serveur (par exemple "docker pull nginx1.11" permet de télécahrger la version 1.11 de nginx)
+
+docker rmi ID:
+Permet de supprimer une image via son ID ou une parti de l'ID
