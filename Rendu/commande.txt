@@ -46,3 +46,34 @@ Permet de télécharger une image en local sur le serveur (par exemple "docker p
 
 docker rmi ID:
 Permet de supprimer une image via son ID ou une parti de l'ID
+
+docker container top name or ID:
+montre les processus en cours sur le container (capture10)
+
+docker container log name or ID:
+Permet de recuper les logs sur le container (capture11)
+
+docker stats name or id:
+Permet d'afficher le gestionnaire de tache du container (cpu/memoire/reseau)
+
+docker inspect id or name:
+affiche les information détaillé d'un container
+
+docker run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes:
+le -e permet d'executer un paramettre directement dans le container lors de la création.
+
+docker run --name debian -it debian /bin/bash:
+lors de la création de la debian on arrive directement dans le terminal.
+Cela est permis grace au -it (capture12)
+
+Pour relancer le terminal si le container est kill il faut faire "docker exec -it ID /bin/bash"
+
+docker network ls:
+liste les différents reseau
+capture13
+
+docker network inspect name:
+inspecter un reseau capture13
+
+docker network create my_app_network:
+Permet de créer un nouveau reseau (capture14)
