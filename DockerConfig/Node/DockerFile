@@ -2,3 +2,7 @@ FROM node:10-alpine
 
 #permet de definir le dossier de travail pour les autre instruction du docker file (run, cmd,entreypoint add)
 WORKDIR /usr/src/app
+
+COPY blabla ./
+
+RUN npm install 

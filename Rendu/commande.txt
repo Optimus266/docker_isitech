@@ -81,3 +81,14 @@ Permet de créer un nouveau reseau (capture14)
 docker images:
 Donne la liste de toute les image télécharger en local (capture15)
 
+Creer un volume sous docker:
+docker volume created  testvolume > Permet de creer un volume
+docker run -d -v testvolume:/world busybox ls /world > creer un container avec busybox comme image dans notre volume sous le dossier world
+docker run -d -v testvolume:/ubuntu ubuntu ls /ubuntu > creer un container avec ubuntu comme image dans notre volume sous le dossier ubuntu
+
+docker build -t ubuntuwilll:update .:
+PErmet de build une images
+
+dockerfile : doit etre creer sans F majuscule
+
+Il est possible de creer des container directement via minecraft (capture 16) via l'application dockercraft
