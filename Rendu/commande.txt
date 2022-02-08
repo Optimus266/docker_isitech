@@ -77,3 +77,7 @@ inspecter un reseau capture13
 
 docker network create my_app_network:
 Permet de créer un nouveau reseau (capture14)
+
+docker images:
+Donne la liste de toute les image télécharger en local (capture15)
+
