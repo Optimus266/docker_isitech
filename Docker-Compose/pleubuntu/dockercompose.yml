@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  ubuntu:
+    image: plexbuntu:update
+    container_name: plexbuntu
+    network_mode: bridge
+    #command: /bin/bash
+    volumes:
+      - C:\Docker\config:/config
+      - C:\Docker\tv:/tv
+      - C:\Docker\film:/movies
+    #ports:
+     # - "32400:32400/tcp"
+    #restart: unless-stopped

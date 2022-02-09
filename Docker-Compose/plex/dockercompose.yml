@@ -1,0 +1,23 @@
+#https://hub.docker.com/r/linuxserver/plex
+
+
+---
+version: "2.1"
+
+services:
+  plex:
+    image: linuxserver/plex
+    container_name: plex2
+    network_mode: bridge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+      - C:\Docker\config:/config
+      - C:\Docker\tv:/tv
+      - C:\Docker\film:/movies
+    ports:
+      - "32400:32400/tcp"
+    restart: unless-stopped
