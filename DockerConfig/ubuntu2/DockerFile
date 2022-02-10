@@ -1,7 +1,8 @@
 # Get the base image
 
-FROM ubuntu:latest
+FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
+ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
 
 # Install all packages
 
@@ -10,8 +11,34 @@ RUN apt-get -y upgrade
 RUN apt-get install -y iproute2
 RUN apt install -y wget
 RUN wget https://downloads.plex.tv/plex-media-server-new/1.25.5.5492-12f6b8c83/debian/plexmediaserver_1.25.5.5492-12f6b8c83_amd64.deb
-RUN dpkg -i plexmediaserver_1.19.3.2852-219a9974e_amd64.deb
+#RUN dpkg -i plexmediaserver_1.25.5.5492-12f6b8c83_amd64.deb
 RUN apt install -y systemctl
+#RUN apt install -y systemd
+RUN apt install -y sudo
+#RUN apt install -y curl
+#RUN apt install -y gnupg
+#RUN curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
+#RUN echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+#RUN apt install apt-transport-https
+RUN apt update
+RUN apt-get -y upgrade 
+#RUN apt install -y plexmediaserver
+#RUN systemctl status plexmediaserver
+
+RUN \
+# Add user
+    useradd -U -d /config -s /bin/false plex && \
+    usermod -G users plex && \
+    \
+# Setup directories
+    mkdir -p \
+      /config \
+      /transcode \
+      /data
+
+ENV CHANGE_CONFIG_DIR_OWNERSHIP="true" \
+    HOME="/config"
+
 
 #ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
 
